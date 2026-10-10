@@ -9,6 +9,9 @@ data class YouTubeClient(
     val clientId: String,
     val userAgent: String,
     val osVersion: String? = null,
+    val osName: String? = null,
+    val deviceMake: String? = null,
+    val deviceModel: String? = null,
     val loginSupported: Boolean = false,
     val loginRequired: Boolean = false,
     val useSignatureTimestamp: Boolean = false,
@@ -36,6 +39,7 @@ data class YouTubeClient(
          * Should be the latest Firefox ESR version.
          */
         const val USER_AGENT_WEB = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0"
+        const val USER_AGENT_VISIONOS = "com.google.ios.youtube/1.02 (RealityDevice17,1; U; visionOS 2_3)"
 
         const val ORIGIN_YOUTUBE_MUSIC = "https://music.youtube.com"
         const val REFERER_YOUTUBE_MUSIC = "$ORIGIN_YOUTUBE_MUSIC/"
@@ -113,6 +117,19 @@ data class YouTubeClient(
             userAgent = "com.google.android.apps.youtube.vr.oculus/1.61.48 (Linux; U; Android 12; en_US; Oculus Quest 3; Build/SQ3A.220605.009.A1; Cronet/132.0.6808.3)",
             loginSupported = false,
             useSignatureTimestamp = false
+        )
+
+        val VISIONOS = YouTubeClient(
+            clientName = "VISIONOS",
+            clientVersion = "1.02",
+            clientId = "101",
+            userAgent = USER_AGENT_VISIONOS,
+            osVersion = "2.3.21O5565d",
+            osName = "visionOS",
+            deviceMake = "Apple",
+            deviceModel = "RealityDevice17,1",
+            loginSupported = false,
+            useSignatureTimestamp = false,
         )
     }
 }
